@@ -5,7 +5,8 @@ defmodule SocketGallowsWeb.UserSocket do
   channel "hangman:*", SocketGallowsWeb.HangmanChannel
 
   ## Transports
-  transport :websocket, Phoenix.Transports.WebSocket
+  transport :websocket, Phoenix.Transports.WebSocket,
+    timeout: 45_000
 
   def connect(_params, socket) do
     {:ok, socket}
